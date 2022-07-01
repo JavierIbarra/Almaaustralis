@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrahead %}
+<link rel="icon" href="https://almaaustralis.cl/imagenes/icons/logo.png" sizes="48x48" />
+{% endblock %}
+
+{% block extrastyle %}
+<style>
+    #header{
+        background: #B1B14A; 
+    }
+    .module h2, .module caption, .inline-group h2{
+        background: #B1B14A;
+    }
+    #branding h1 a:visited {
+        color: #ffffff;
+    }
+    .button, input[type="submit"], input[type="button"], .submit-row input, a.button {
+        background: #B1B14A;
+    }
+</style>
+{% endblock extrastyle %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        <img src="https://almaaustralis.cl/imagenes/icons/logo.png" alt="Logo" height="50px" />
+        {{ site_header|default:_('Django administration') }}
+    </a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
