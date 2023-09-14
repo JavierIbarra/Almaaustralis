@@ -1,0 +1,19 @@
+name: Django CI
+
+on:
+  pull_request:
+    branches: [ "main", "develop" ]
+    paths-ignore: [ "**/README.md" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: docker-compose build
+
+      - name: Run
+        run: docker-compose up --detach django
+
